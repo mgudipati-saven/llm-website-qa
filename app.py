@@ -43,16 +43,17 @@ def load_from_website(url):
     return index
 
 
-st.header("Chat with a website 💬 📚")
-website = st.text_input("Enter a website URL")
+st.header("Question an online documentation 💬 📚")
 
-with st.spinner("Loading website..."):
-    index = load_from_website(website)
+# Load the website data
+website = st.text_input("Enter the website URL")
+if st.button("Load documents"):
+    with st.spinner(text="Loading..."):
+        index = load_from_website(website)
 
-    # Get the user input
-    question = st.text_input("Enter a question")
-
-    if st.button("Ask"):
-        # Get the answer from the index
-        answer = index.as_query_engine().query(question)
-        st.write(answer)
+# Ask a question
+question = st.text_input("Ask a question")
+if st.button("Ask"):
+    # Get the answer from the index
+    answer = index.as_query_engine().query(question)
+    st.write(answer)
