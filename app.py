@@ -47,7 +47,8 @@ def load_from_website(url):
 
 st.header("Question an online documentation 💬 📚")
 
-# Load the website data
+# Load the website data and create an index
+index = None
 website = st.text_input("Enter the website URL")
 if st.button("Load documents"):
     with st.spinner(text="Loading..."):
@@ -55,7 +56,7 @@ if st.button("Load documents"):
 
 # Ask a question
 question = st.text_input("Ask a question")
-if st.button("Ask"):
+if st.button("Ask") and index is not None:
     # Get the answer from the index
     answer = index.as_query_engine().query(question)
     st.write(answer)
