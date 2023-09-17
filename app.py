@@ -19,7 +19,8 @@ def load_from_website(url):
     urls = scrape(url)
 
     # Load the website data
-    BeautifulSoupWebReader = download_loader("BeautifulSoupWebReader")
+    BeautifulSoupWebReader = download_loader(
+        "BeautifulSoupWebReader", custom_path="./llama_index")
     reader = BeautifulSoupWebReader()
     docs = reader.load_data(urls)
 
