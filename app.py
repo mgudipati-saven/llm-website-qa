@@ -44,13 +44,13 @@ def load_from_website(url):
 
 
 st.header("Chat with a website 💬 📚")
-url = st.text_input("Enter a website URL", value="https://www.streamlit.io/")
+website = st.text_input("Enter a website URL")
 
 with st.spinner("Loading website..."):
-    index = load_from_website(url)
+    index = load_from_website(website)
 
     # Get the user input
-    question = st.text_input("Enter a question", value="What is Streamlit?")
+    question = st.text_input("Enter a question")
 
     if st.button("Ask"):
         # Get the answer from the index
