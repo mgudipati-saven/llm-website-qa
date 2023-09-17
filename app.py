@@ -27,8 +27,9 @@ def load_from_website(url):
     # Initialize the prompt helper
     max_input_size = 4096
     num_output = 256
-    max_chunk_overlap = 20
-    prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
+    chunk_overlap_ratio = 0.1
+    prompt_helper = PromptHelper(
+        max_input_size, num_output, chunk_overlap_ratio)
 
     # Index the website data
     service_context = ServiceContext.from_defaults(
